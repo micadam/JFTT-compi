@@ -8,8 +8,6 @@ Eq::Eq(Value * val1, Value * val2) : val1(val1), val2(val2) {}
 //A = B <=> A >= B && B <= A <=> A - B = 0 AND B - A = 0
 std::vector<Command> * Eq::evaluate( VariableStorage& variableStorage) {
 
-	std::cerr<<val1->identifier->name<<std::endl;
-
 	Sub * sub = new Sub(val1, val2);
 	std::vector<Command> * commands = sub->evaluate(variableStorage);
 	delete sub;

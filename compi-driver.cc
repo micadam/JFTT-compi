@@ -73,13 +73,13 @@ std::vector<Command> * compi_driver::assign(Identifier * identifier, Expression 
 
 	if(variableStorage.isIterator(identifier->name)) {
 		isError = true;
-		std::cerr<<"Invalid assigment of an operator!"<<std::endl;
+		std::cerr<<"Invalid assigment of an iterator!"<<std::endl;
 		return new std::vector<Command>();
 	}
 
 	std::vector<Command> * commands;
 
-	if(identifier->iter && identifier->iterName != "") {
+	if(identifier->iterName != "") {
 		commands = variableStorage.prepareArray(identifier, 7);
 	} else {
 		commands = new std::vector<Command>();
@@ -94,9 +94,7 @@ std::vector<Command> * compi_driver::assign(Identifier * identifier, Expression 
 		commands->push_back(Command("STOREI", 7));
 	}
 
-	if(!identifier->iter) {
-		variableStorage.initializeVariable(identifier->name);
-	}
+	variableStorage.initializeVariable(identifier->name);
 
 	return commands;
 

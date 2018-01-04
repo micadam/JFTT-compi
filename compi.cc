@@ -5,6 +5,7 @@ int main (int argc, char *argv[]) {
   int res = 0;
   compi_driver driver;
   if(argc == 1) {
+    
     if(driver.parse("-")) {
       std::cerr<< driver.result << std::endl;
       res = driver.result;
