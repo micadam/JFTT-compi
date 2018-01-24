@@ -146,7 +146,7 @@ std::vector<Command> * VariableStorage::generateConstant(long long value) {
 
 	std::vector<Command> * commands = new std::vector<Command>;
 
-	bool expensive = (value > 63); //TODO expensive number detection
+	bool expensive = false; //TODO expensive number detection
 
 	if(constant_addresses.find(value) == constant_addresses.end()) {  //value is not a quick access value
 		//construct a number and save it if it's expensive enough

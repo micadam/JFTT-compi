@@ -579,7 +579,7 @@ std::vector<Command> * Mod::evaluate(VariableStorage& variableStorage) {
 	//3 - limit
 
 	//zero disivion check
-	commands->push_back(Command("JZERO", 28, true)); //done + 1
+	commands->push_back(Command("JZERO", 29, true)); //done + 1
 	commands->push_back(Command("STORE", 3));
 	//align a and b
 	commands->push_back(Command("SHL")); //LABEL start1
@@ -591,7 +591,7 @@ std::vector<Command> * Mod::evaluate(VariableStorage& variableStorage) {
 	commands->push_back(Command("STORE", 2));
 	commands->push_back(Command("JUMP", -7, true)); //start1
 	//proceed with division
-	//if a <= b at start, don't do anything
+	//if a < b at start, don't do anything
 	commands->push_back(Command("LOAD", 1));   //LABEL next1
 	commands->push_back(Command("INC"));
 	commands->push_back(Command("SUB", 2));
@@ -601,7 +601,7 @@ std::vector<Command> * Mod::evaluate(VariableStorage& variableStorage) {
 	commands->push_back(Command("LOAD", 1));
 	commands->push_back(Command("INC"));
 	commands->push_back(Command("SUB", 2));
-	commands->push_back(Command("JZERO", 6, true)); //no
+	commands->push_back(Command("JZERO", 6, true)); //no			b > a, don't subtract
 	commands->push_back(Command("DEC"));
 	commands->push_back(Command("STORE", 1));
 	commands->push_back(Command("INC"));
