@@ -10,3 +10,6 @@ The language works exclusively on natural numbers and can process the following 
 Additionally the language supports both single and array-like variables.
 
 Files in the "labor4" folder have been provided by the lecturer and serve as a compiler testing utility.
+
+
+This compiler has ranked second out of 85 submitted compilers when scored by output code computational performance.
